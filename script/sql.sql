@@ -1,0 +1,2 @@
+INSERT INTO `tag_parent_entity`( `name`) VALUES ('New'),('Apparel'),('Bag'),('Shoes'),('Beauty'),('Accessories')
+INSERT INTO `tag_child_entity`( `name`, `idTagParentId`) VALUES ('outer','2'),('dress','2'),('blouse/shirt','2'),('t-shirt','2'),('knitwear','2'),('skirt','2'),('pants','2'),('denim','2'),('kids','2')
