@@ -1,17 +1,20 @@
 /* eslint-disable prettier/prettier */
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm"
 
 @Entity()
-export class UserEntity {
+export class LocalBranchEntity {
     @PrimaryGeneratedColumn()
     id: number
 
     @Column({ type: 'nvarchar', length: 255 })
-    userName: string
-
+    name: string
+    
     @Column({ type: 'nvarchar', length: 255 })
-    email: string
-
+    description: string
+    
     @Column({ type: 'nvarchar', length: 255 })
-    password: string
+    image: string
+
+   
 }
+//idLocalBranch,name, description,image
