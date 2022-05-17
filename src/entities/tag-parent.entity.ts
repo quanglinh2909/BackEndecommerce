@@ -2,16 +2,10 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
 
 @Entity()
-export class UserEntity {
+export class TagParentEntity {
     @PrimaryGeneratedColumn()
     id: number
 
     @Column({ type: 'nvarchar', length: 255 })
-    userName: string
-
-    @Column({ type: 'nvarchar', length: 255 })
-    email: string
-
-    @Column({ type: 'nvarchar', length: 255 })
-    password: string
+    name: string
 }
