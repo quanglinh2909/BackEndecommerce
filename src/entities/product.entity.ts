@@ -20,20 +20,20 @@ export class ProductEntity {
 
     @Column({ type: 'nvarchar', length: 255 })
     name: string
-    
+
     @Column({ type: 'float' })
     price: number
-    
-    @Column({ type: 'number' })
+
+    @Column({ type: 'int' })
     S: number
 
-    @Column({ type: 'number' })
+    @Column({ type: 'int' })
     M: number
 
-    @Column({ type: 'number' })
+    @Column({ type: 'int' })
     L: number
 
-    @Column({ type: 'number' })
+    @Column({ type: 'int' })
     XL: number
 
 }

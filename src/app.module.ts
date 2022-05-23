@@ -14,11 +14,12 @@ import { join } from 'path';
       port: 3306,
       username: 'root',
       password: '',
-      database: 'ecommerceandroid',
+      database: 'demo',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
       autoLoadEntities: true,
-    }), ServeStaticModule.forRoot({
+    }),
+    ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'uploads'),
     }),
 

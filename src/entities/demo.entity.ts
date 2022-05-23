@@ -1,11 +1,11 @@
 /* eslint-disable prettier/prettier */
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm"
 import { ColorProductEntity } from "./color-product.entity"
-import { ProductEntity } from "./product.entity"
 import { UserEntity } from "./user.entity"
 
+
 @Entity()
-export class CartEntity {
+export class DemoEntity {
     @PrimaryGeneratedColumn()
     id: number
 

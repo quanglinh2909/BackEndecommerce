@@ -23,7 +23,7 @@ export class OrderDetailEntity {
 
     @Column({ type: 'nvarchar', length: 255 })
     size: string
-    
+
     @CreateDateColumn()
     altDelete: Date
 

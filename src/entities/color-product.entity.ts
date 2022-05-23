@@ -7,13 +7,13 @@ export class ColorProductEntity {
     @PrimaryGeneratedColumn()
     id: number
 
-    @ManyToOne(() => ProductEntity, (product) => product.id)
-    idProduct: ProductEntity
+    // @ManyToOne(() => ProductEntity, (product) => product.id)
+    // idProduct: ProductEntity
 
     @Column({ type: 'nvarchar', length: 255 })
     name: string
 
-    @Column({ type: 'number' })
+    @Column({ type: 'int' })
     stock: number
 
     @Column({ type: 'nvarchar', length: 255 })
