@@ -6,6 +6,9 @@ export class UserLogin {
     email: string;
 
     @ApiProperty({ type: String })
+    userName: string;
+
+    @ApiProperty({ type: String })
     password: string;
 }
 export class UserRegister {

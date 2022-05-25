@@ -18,7 +18,7 @@ export class OrderDetailEntity {
     @Column({ type: 'float' })
     price: number
 
-    @Column({ type: 'number' })
+    @Column({ type: 'int' })
     quantity: number
 
     @Column({ type: 'nvarchar', length: 255 })

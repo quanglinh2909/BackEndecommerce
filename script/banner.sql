@@ -1,0 +1,1 @@
+INSERT INTO `banner_entity`( `linkImage`) VALUES ('images/banner/item_banner_2.png'),('images/banner/item_banner_1.jpg')

@@ -14,7 +14,7 @@ import { join } from 'path';
       port: 3306,
       username: 'root',
       password: '',
-      database: 'demo',
+      database: 'ecommerceandroid',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
       autoLoadEntities: true,

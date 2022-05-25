@@ -8,10 +8,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.setGlobalPrefix('api');
-  app.enableCors({
-    origin: 'http://localhost:3000',
-    credentials: true,
-  });
+  app.enableCors();
   const config = new DocumentBuilder()
     .setTitle('Core NestJs Typeorm')
     .setDescription('Core NestJs Typeorm Power By QuangLinh')

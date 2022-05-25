@@ -13,6 +13,6 @@ export * from './product.entity'
 export * from './tag-child.entity'
 export * from './tag-parent.entity'
 export * from './user-info.entity'
-export * from './demo.entity'
+export * from './banner.entity'
 
 

@@ -9,8 +9,8 @@ export class CartEntity {
     @PrimaryGeneratedColumn()
     id: number
 
-    // @ManyToOne(() => ProductEntity, (product) => product.id)
-    // idProduct: ProductEntity
+    @ManyToOne(() => ProductEntity, (product) => product.id)
+    idProduct: ProductEntity
 
     @ManyToOne(() => UserEntity, (user) => user.id)
     idUser: UserEntity
