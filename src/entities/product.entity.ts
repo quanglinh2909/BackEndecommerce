@@ -1,13 +1,14 @@
 /* eslint-disable prettier/prettier */
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, PrimaryColumn } from "typeorm"
 import { ColorProductEntity } from "./color-product.entity"
 import { LocalBranchEntity } from "./local-branch.entity"
 import { TagChildEntity } from "./tag-child.entity"
+import { TagParentEntity } from "./tag-parent.entity"
 
 @Entity()
 export class ProductEntity {
-    @PrimaryGeneratedColumn()
-    id: number
+    @PrimaryColumn()
+    id: string
 
     @ManyToOne(() => LocalBranchEntity, (branch) => branch.id)
     idlocalbranch: LocalBranchEntity
@@ -15,8 +16,8 @@ export class ProductEntity {
     @ManyToOne(() => ColorProductEntity, (con) => con.id)
     idColection: ColorProductEntity
 
-    @ManyToOne(() => TagChildEntity, (tag) => tag.id)
-    idTagChild: TagChildEntity
+    @ManyToOne(() => TagParentEntity, (tag) => tag.id)
+    idParent: TagParentEntity
 
     @Column({ type: 'nvarchar', length: 255 })
     name: string
