@@ -9,7 +9,6 @@ async function bootstrap() {
 
   app.setGlobalPrefix('api');
   app.enableCors();
-
   const config = new DocumentBuilder()
     .setTitle('Core NestJs Typeorm')
     .setDescription('Core NestJs Typeorm Power By QuangLinh')

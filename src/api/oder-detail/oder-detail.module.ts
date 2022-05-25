@@ -1,4 +1,5 @@
-import { OrderDetailEntity } from '@/entities/orderDetail.entity';
+/* eslint-disable prettier/prettier */
+import { OrderDetailEntity } from '@/entities/order-detail.entity';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { OderDetailController } from './oder-detail.controller';
@@ -11,4 +12,4 @@ import { OderDetailService } from './oder-detail.service';
   controllers: [OderDetailController],
   providers: [OderDetailService]
 })
-export class OderDetailModule {}
+export class OderDetailModule { }

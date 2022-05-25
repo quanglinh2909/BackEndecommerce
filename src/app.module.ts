@@ -18,7 +18,8 @@ import { join } from 'path';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
       autoLoadEntities: true,
-    }), ServeStaticModule.forRoot({
+    }),
+    ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'uploads'),
     }),
 

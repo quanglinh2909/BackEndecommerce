@@ -18,10 +18,10 @@ export class CartEntity {
     @ManyToOne(() => ColorProductEntity, (color) => color.id)
     idColor: ColorProductEntity
 
-    @Column({ type: 'number' })
+    @Column({ type: 'int' })
     quantity: number
 
-    
+
     @Column({ type: 'nvarchar', length: 255 })
     size: string
 

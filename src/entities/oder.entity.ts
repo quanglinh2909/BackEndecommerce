@@ -15,9 +15,9 @@ export class OrderEntity {
     @Column({ type: 'float' })
     total: number
 
-    @Column({ type: 'number' })
+    @Column({ type: 'int' })
     status: number
-    
+
     @CreateDateColumn()
     oderDate: Date
 

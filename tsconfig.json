@@ -11,10 +11,18 @@
         "outDir": "./dist",
         "baseUrl": "./",
         "paths": {
-            "@/entities/*": ["./src/entities/*"],
-            "@/enum/*": ["./src/enum/*"],
-            "@/dto/*": ["./src/dto/*"],
-            "@/utils/*": ["./src/utils/*"],
+            "@/entities/*": [
+                "./src/entities/*"
+            ],
+            "@/enum/*": [
+                "./src/enum/*"
+            ],
+            "@/dto/*": [
+                "./src/dto/*"
+            ],
+            "@/utils/*": [
+                "./src/utils/*"
+            ],
             "@/secrets/*": [
                 "./src/secrets/*"
             ]

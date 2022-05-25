@@ -13,7 +13,7 @@ export class ColorProductEntity {
     @Column({ type: 'nvarchar', length: 255 })
     name: string
 
-    @Column({ type: 'number' })
+    @Column({ type: 'int' })
     stock: number
 
     @Column({ type: 'nvarchar', length: 255 })
