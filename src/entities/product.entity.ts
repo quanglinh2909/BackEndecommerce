@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, PrimaryColumn } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, PrimaryColumn, CreateDateColumn } from "typeorm"
 import { ColorProductEntity } from "./color-product.entity"
 import { LocalBranchEntity } from "./local-branch.entity"
 import { TagChildEntity } from "./tag-child.entity"
@@ -36,6 +36,15 @@ export class ProductEntity {
 
     @Column({ type: 'int' })
     XL: number
+
+    @Column({ type: 'float' })
+    rating: number
+
+    @Column({ type: 'int' })
+    sale: number
+
+    @CreateDateColumn()
+    createdAt: Date
 
 }
 //idProduct,idlocalbranch,name,price,S,M,L,XL,idColection, idTagChild

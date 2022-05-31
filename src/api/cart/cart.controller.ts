@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
+import { CardDto } from '@/dto/cart.dto';
 import { CartEntity } from '@/entities/cart.entity';
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { CartService } from './cart.service';
 
@@ -12,4 +13,22 @@ export class CartController {
     async getAll(): Promise<CartEntity[]> {
         return await this.cartService.getAll();
     }
+    @ApiTags('cart')
+    @Get('get-by-id-user/:id')
+    async getByIdUser(@Param('id') id: number): Promise<CartEntity[]> {
+        return await this.cartService.getByIdUser(id);
+    }
+    @ApiTags('cart')
+    @Post('insert')
+    async insert(@Body() cart: CardDto): Promise<CartEntity> {
+        return await this.cartService.insert(cart);
+    }
+
+    @ApiTags('cart')
+    @Put('update')
+    async update(@Body() cart: CartEntity): Promise<CartEntity> {
+
+        return await this.cartService.update(cart);
+    }
+
 }

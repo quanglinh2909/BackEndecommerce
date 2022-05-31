@@ -15,9 +15,6 @@ export class CartEntity {
     @ManyToOne(() => UserEntity, (user) => user.id)
     idUser: UserEntity
 
-    @ManyToOne(() => ColorProductEntity, (color) => color.id)
-    idColor: ColorProductEntity
-
     @Column({ type: 'int' })
     quantity: number
 

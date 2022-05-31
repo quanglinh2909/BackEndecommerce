@@ -10,6 +10,9 @@ export class TagChildEntity {
     @Column({ type: 'nvarchar', length: 255 })
     name: string
 
+    @Column({ type: 'int' })
+    code: number
+
     @ManyToOne(() => TagParentEntity, (tag) => tag.id)
     idTagParent: TagParentEntity;
 }
