@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { CardDto } from '@/dto/cart.dto';
 import { CartEntity } from '@/entities/cart.entity';
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { CartService } from './cart.service';
 
@@ -29,6 +29,11 @@ export class CartController {
     async update(@Body() cart: CartEntity): Promise<CartEntity> {
 
         return await this.cartService.update(cart);
+    }
+    @ApiTags('cart')
+    @Delete('delete/:id')
+    async delete(@Param('id') id: number) {
+        return await this.cartService.delete(id);
     }
 
 }

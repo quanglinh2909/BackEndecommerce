@@ -68,5 +68,14 @@ export class CartService {
         if (!currentCart) throw new NotFoundException('Not found cart id!');
         return await this.cartRepository.save(cart);
     }
+    async delete(id: number) {
+        const currentCart: any = await this.cartRepository.findOne({
+            where: {
+                id: id,
+            },
+        });
+        if (!currentCart) throw new NotFoundException('Not found cart id!');
+        return await this.cartRepository.remove(currentCart);
+    }
 
 }
