@@ -3,6 +3,8 @@ import { ImageEntity } from '@/entities/image.entity';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+//fs
+import * as fs from 'fs';
 
 @Injectable()
 export class ImageService {
@@ -32,6 +34,19 @@ export class ImageService {
             .leftJoinAndSelect('image_entity.idProduct', 'product_entity')
             .leftJoinAndSelect('product_entity.idParent', 'tag_parent_entity')
             .where('product_entity.idParent = :idTagParent', { idTagParent })
+            .groupBy('image_entity.idProduct')
+            .orderBy('image_entity.idProduct', 'ASC')
+            .offset(page)
+            .limit(limit)
+            .getMany();
+
+    }
+
+    async getAllProduct(page: number, limit: number) {
+        return await this.imageEntityRepository
+            .createQueryBuilder('image_entity')
+            .leftJoinAndSelect('image_entity.idProduct', 'product_entity')
+            .leftJoinAndSelect('product_entity.idParent', 'tag_parent_entity')
             .groupBy('image_entity.idProduct')
             .orderBy('image_entity.idProduct', 'ASC')
             .offset(page)
@@ -90,4 +105,22 @@ export class ImageService {
         });
 
     }
+    //delete 
+    async delete(id: string, url: string) {
+        fs.unlinkSync('uploads/' + url);
+        return await this.imageEntityRepository.delete(id);
+    }
+    //create from listimage
+    async createFromListImage(listImage: any) {
+        listImage.forEach(async (image: any) => {
+            const img = await this.imageEntityRepository.create({
+                idProduct: image.idProduct,
+                url: image.url,
+            });
+            await this.imageEntityRepository.save(img);
+        }
+        );
+        return true;
+    }
+
 }

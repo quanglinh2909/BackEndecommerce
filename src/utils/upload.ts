@@ -18,6 +18,24 @@ export const getDirPathUpload = () => {
         console.log(error.message);
     }
 };
+export const getDirPathUploadPost = () => {
+    const dirPath = 'uploads-posts/' + getDatePath();
+    try {
+        if (!fs.existsSync(dirPath)) fs.mkdirSync(dirPath, { recursive: true });
+        return dirPath;
+    } catch (error) {
+        console.log(error.message);
+    }
+};
+export const getDirPathSearch = () => {
+    const dirPath = 'searches/';
+    try {
+        if (!fs.existsSync(dirPath)) fs.mkdirSync(dirPath, { recursive: true });
+        return dirPath;
+    } catch (error) {
+        console.log(error.message);
+    }
+};
 
 export const getDatePath = () => {
     const toDate = new Date();

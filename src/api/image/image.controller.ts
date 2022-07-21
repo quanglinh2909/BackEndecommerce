@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { ImageEntity } from '@/entities/image.entity';
-import { Controller, Get, Param } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { ImageService } from './image.service';
 
@@ -21,7 +21,6 @@ export class ImageController {
     @ApiTags('image')
     @Get('get-by-id-product/:idProduct')
     async getByIdProduct(@Param("idProduct") idProduct: string) {
-
         return await this.imageService.getByIdProduct(idProduct);
     }
     @ApiTags('image')
@@ -34,6 +33,24 @@ export class ImageController {
     async getByIdTagChild(@Param("idTagParent") idTagParent: number, @Param("codeTagChild") codeTagChild: number
         , @Param("offset") offset: number, @Param("limit") limit: number) {
         return await this.imageService.getByIdTagChild(idTagParent, codeTagChild, offset, limit);
+    }
+
+    @ApiTags('image')
+    @Get('get-all-product/:offset/:limit')
+    async getAllPRoduct(@Param("offset") offset: number, @Param("limit") limit: number) {
+        return await this.imageService.getAllProduct(offset, limit);
+    }
+
+    @ApiTags('image')
+    @Delete('delete/:id/:url')
+    async delete(@Param('id') id, @Param('url') url) {
+        return await this.imageService.delete(id, url);
+    }
+    //create
+    @ApiTags('image')
+    @Post('create')
+    async create(@Body() image) {
+        return await this.imageService.createFromListImage(image);
     }
 
 }

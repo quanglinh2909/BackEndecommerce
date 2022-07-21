@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { ProductEntity } from '@/entities/product.entity';
-import { Controller, Get, Param } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { ProductService } from './product.service';
 
@@ -26,6 +26,28 @@ export class ProductController {
     @Get('get-total-by-id-child/:idTagParent/:codeTagChild')
     async getTotalProductByTagChild(@Param("idTagParent") idTagParent: number, @Param("codeTagChild") codeTagChild: number): Promise<number> {
         return await this.productService.getTotalProductByTagChild(idTagParent, codeTagChild);
+    }
+    @ApiTags('product')
+    @Post('create')
+    async create(@Body() data): Promise<ProductEntity> {
+        return await this.productService.create(data);
+    }
+    @ApiTags('product')
+    @Put('update')
+    async update(@Body() data): Promise<ProductEntity> {
+        return await this.productService.updateProduct(data);
+    }
+
+    @ApiTags('product')
+    @Delete('delete/:id')
+    async delete(@Param('id') id) {
+        return await this.productService.softDelete(id);
+    }
+
+    @ApiTags('product')
+    @Get('get-sum-product')
+    async getSumProduct() {
+        return await this.productService.getSumProduct();
     }
 
 }

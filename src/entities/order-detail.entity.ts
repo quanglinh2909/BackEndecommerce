@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn } from "typeorm"
 import { ColorProductEntity } from "./color-product.entity"
+import { OrderEntity } from "./oder.entity"
 import { ProductEntity } from "./product.entity"
 import { UserEntity } from "./user.entity"
 
@@ -12,8 +13,8 @@ export class OrderDetailEntity {
     @ManyToOne(() => ProductEntity, (pro) => pro.id)
     idProduct: ProductEntity
 
-    @ManyToOne(() => ColorProductEntity, (color) => color.id)
-    idColor: ColorProductEntity
+    @ManyToOne(() => OrderEntity, (color) => color.id)
+    idOrder: OrderEntity
 
     @Column({ type: 'float' })
     price: number

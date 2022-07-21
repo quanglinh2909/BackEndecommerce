@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, PrimaryColumn, CreateDateColumn } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, PrimaryColumn, CreateDateColumn, DeleteDateColumn } from "typeorm"
 import { ColorProductEntity } from "./color-product.entity"
 import { LocalBranchEntity } from "./local-branch.entity"
 import { TagChildEntity } from "./tag-child.entity"
@@ -13,8 +13,8 @@ export class ProductEntity {
     @ManyToOne(() => LocalBranchEntity, (branch) => branch.id)
     idlocalbranch: LocalBranchEntity
 
-    @ManyToOne(() => ColorProductEntity, (con) => con.id)
-    idColection: ColorProductEntity
+    // @ManyToOne(() => ColorProductEntity, (con) => con.id)
+    // idColection: ColorProductEntity
 
     @ManyToOne(() => TagParentEntity, (tag) => tag.id)
     idParent: TagParentEntity
@@ -46,5 +46,7 @@ export class ProductEntity {
     @CreateDateColumn()
     createdAt: Date
 
+    @DeleteDateColumn()
+    DeleteAt: Date;
 }
 //idProduct,idlocalbranch,name,price,S,M,L,XL,idColection, idTagChild

@@ -12,14 +12,30 @@ export class UserInfoEntity {
 
     @Column({ type: 'nvarchar', length: 12 })
     telephone: string
-    
+
     @Column({ type: 'nvarchar', length: 255 })
-    firstname: string
-    
-    @Column({ type: 'nvarchar', length: 255 })
-    lastname: string
+    fullName: string
 
     @Column({ type: 'nvarchar', length: 255 })
     address: string
+
+    @Column({ type: 'nvarchar', length: 255 })
+    province: string
+
+    @Column({ type: 'nvarchar', length: 255 })
+    district: string
+
+    @Column({ type: 'nvarchar', length: 255 })
+    ward: string
+
+    @Column({ type: 'nvarchar', length: 255 })
+    typeAddress: string
+
+    @Column({ type: 'int' })
+    default: number
+
+    @Column({ type: 'int' })
+    sex: number
+
 }
 //id, iduser, age, sex, telephone, firstname, lastname

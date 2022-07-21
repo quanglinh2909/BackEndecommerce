@@ -11,17 +11,17 @@ import { ConfigModule } from '@nestjs/config';
     SharedModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'database-1.cyvv3bn15rgc.us-east-1.rds.amazonaws.com',
+      host: 'localhost',
       port: 3306,
-      username: 'admin',
-      password: 'Hackco2909',
+      username: 'root',
+      password: '',
       database: 'ecommerceandroid',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
       autoLoadEntities: true,
-      ssl: {
-        rejectUnauthorized: false,
-      },
+      // ssl: {
+      //   rejectUnauthorized: false,
+      // },
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'uploads'),
