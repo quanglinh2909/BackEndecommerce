@@ -17,6 +17,9 @@ export class UserService {
     async getAll(): Promise<UserEntity[]> {
         return await this.userRepository.find({});
     }
+    async getUserByID(idUser: string): Promise<UserEntity> {
+        return await this.userRepository.findOne(idUser);
+    }
     async create(user: UserRegister): Promise<UserEntity> {
         const hashPw = await bcrypt.hash(user.password, 10);
         const email = await this.userRepository.findOne({ email: user.email });
@@ -50,6 +53,12 @@ export class UserService {
         if (!checkPw) {
             throw new NotFoundException('Mật khẩu không đúng!!!');
         }
-        return user;
+        user.token = userLogin.token;
+        return await this.userRepository.save(user);
+    }
+    async logOut(idUser: string): Promise<UserEntity> {
+        const user = await this.userRepository.findOne(idUser);
+        user.token = '';
+        return await this.userRepository.save(user);
     }
 }

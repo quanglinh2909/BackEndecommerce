@@ -153,5 +153,17 @@ export class ProductService {
 
 
     }
+    //search like
+    async search(name: string) {
+        const result = await this.productRepository
+            .createQueryBuilder('product_entity')
+            .leftJoinAndSelect('image_entity', "image_entity", "image_entity.idProductId = product_entity.id")
+            .where('product_entity.name like :name', { name: `%${name}%` })
+            .orWhere('product_entity.id like :id', { id: `%${name}%` })
+            .groupBy('product_entity.id')
+            .getRawMany();
+        return result;
+    }
+
 
 }

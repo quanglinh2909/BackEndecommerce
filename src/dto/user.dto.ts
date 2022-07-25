@@ -9,6 +9,9 @@ export class UserLogin {
     userName: string;
 
     @ApiProperty({ type: String })
+    token: string;
+
+    @ApiProperty({ type: String })
     password: string;
 }
 export class UserRegister {

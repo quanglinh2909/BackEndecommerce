@@ -15,7 +15,8 @@ import { OderDetailModule } from './oder-detail/oder-detail.module';
 import { ProductModule } from './product/product.module';
 import { UserInfoModule } from './user-info/user-info.module';
 import { BannerModule } from './banner/banner.module';
-const REUSE_LIST = [UserModule, UploadFileModule, BannerModule, TagParentModule, TagChildModule, CartModule, ColorProductModule, ConlectionModule, DescriptionModule, ImageModule, LocalBranchModule, OrderModule, OderDetailModule, ProductModule, UserInfoModule];
+import { NotificationModule } from './notification/notification.module';
+const REUSE_LIST = [UserModule, UploadFileModule, BannerModule, TagParentModule, TagChildModule, CartModule, NotificationModule, ColorProductModule, ConlectionModule, DescriptionModule, ImageModule, LocalBranchModule, OrderModule, OderDetailModule, ProductModule, UserInfoModule];
 @Module({
     imports: [...REUSE_LIST],
     exports: [...REUSE_LIST],

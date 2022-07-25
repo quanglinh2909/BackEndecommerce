@@ -50,4 +50,10 @@ export class ProductController {
         return await this.productService.getSumProduct();
     }
 
+    @ApiTags('product')
+    @Get('search/:keyword')
+    async search(@Param('keyword') keyword) {
+        return await this.productService.search(keyword);
+    }
+
 }
