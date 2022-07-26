@@ -33,9 +33,33 @@ export class UserService {
         const userCreate = await this.userRepository.create({
             email: user.email,
             userName: user.userName,
-            password: hashPw
+            password: hashPw,
+            role: 0,
+            token: ''
         })
         return await this.userRepository.save(userCreate);
+
+    }
+    async loginGoogle(user: any): Promise<UserEntity> {
+        const hashPw = await bcrypt.hash(user.password, 10);
+        const email = await this.userRepository.findOne({ email: user.email });
+        if (!email) {
+            const userCreate = await this.userRepository.create({
+                email: user.email,
+                userName: user.userName,
+                password: hashPw,
+                role: 0,
+                token: user.token
+
+            });
+            return await this.userRepository.save(userCreate);
+        }
+        const user2 = await this.userRepository.createQueryBuilder('user_entity')
+            .where('user_entity.userName = :userName', { userName: user.userName })
+            .andWhere('user_entity.email = :email', { email: user.email })
+            .getOne();
+        user2.token = user.token;
+        return await this.userRepository.save(user2);
 
     }
     async login(userLogin: UserLogin): Promise<UserEntity> {

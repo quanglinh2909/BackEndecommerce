@@ -28,6 +28,11 @@ export class UserController {
     async login(@Body() userLogin: UserLogin): Promise<UserEntity> {
         return await this.userService.login(userLogin);
     }
+    @ApiTags('user')
+    @Post('login-google')
+    async loginGoogle(@Body() userLogin): Promise<UserEntity> {
+        return await this.userService.loginGoogle(userLogin);
+    }
 
     @ApiTags('user')
     @Post('logout/:id')

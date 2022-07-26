@@ -22,5 +22,6 @@ export class UserRegister {
 
     @ApiProperty({ type: String })
     password: string;
-
+    @ApiProperty({ type: String })
+    token: string;
 }
